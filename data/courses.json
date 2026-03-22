@@ -1,0 +1,73 @@
+{
+  "PMA101BS": [
+    ["Unit I", ["Matrices and systems of linear equations", "Rank of a matrix and echelon forms", "Eigenvalues and eigenvectors"]],
+    ["Unit II", ["Limits and continuity", "Differentiation of single-variable functions", "Applications of derivatives: maxima and minima"]],
+    ["Unit III", ["Mean value theorems", "Partial derivatives and total derivatives", "Taylor and Maclaurin series expansions"]],
+    ["Unit IV", ["Definite integrals and their applications", "Multiple integrals", "Change of order and coordinate transformations"]],
+    ["Unit V", ["Vector differentiation", "Gradient, divergence and curl", "Line, surface and volume integrals"]]
+  ],
+  "PCH102BS": [
+    ["Unit I", ["Water chemistry and treatment methods", "Hardness, alkalinity and softening techniques", "Boiler troubles and water quality analysis"]],
+    ["Unit II", ["Chemical thermodynamics basics", "Phase rule and phase equilibria", "Engineering materials and their properties"]],
+    ["Unit III", ["Electrochemistry fundamentals", "Batteries and fuel cells", "Corrosion mechanisms and prevention"]],
+    ["Unit IV", ["Polymers and polymerization techniques", "Fuels and combustion", "Lubricants and industrial applications"]],
+    ["Unit V", ["Nanomaterials and their applications", "Green chemistry principles", "Advanced materials in engineering chemistry"]]
+  ],
+  "PEN103BS": [
+    ["Unit I", ["Listening for comprehension", "Speaking with confidence in classroom situations", "Basics of pronunciation and fluency"]],
+    ["Unit II", ["Reading techniques and comprehension strategies", "Vocabulary building in context", "Word formation and usage"]],
+    ["Unit III", ["Grammar for effective communication", "Sentence structure and error correction", "Paragraph development"]],
+    ["Unit IV", ["Formal writing and email etiquette", "Report writing fundamentals", "Descriptive and process writing"]],
+    ["Unit V", ["Presentation skills", "Group discussion and teamwork communication", "Interview skills and professional readiness"]]
+  ],
+  "PEC104ES": [
+    ["Unit I", ["Semiconductor materials and charge transport", "Intrinsic and extrinsic semiconductors", "PN junction diode characteristics"]],
+    ["Unit II", ["Rectifiers and filters", "Zener diode and voltage regulation", "Special purpose diodes and applications"]],
+    ["Unit III", ["BJT construction and operation", "Biasing techniques and stability", "Transistor characteristics and switching"]],
+    ["Unit IV", ["Transistor amplifiers and frequency response", "FET basics and characteristics", "Small signal models and amplifier applications"]],
+    ["Unit V", ["Feedback concepts and oscillators", "Wave shaping circuits", "Electronic circuit applications and design practice"]]
+  ],
+  "PCH106BS": [
+    ["Unit I", ["Preparation of standard solutions and volumetric analysis", "Water quality testing experiments", "Conductometric and potentiometric measurements", "pH estimation and chemical analysis", "Observation, record writing and viva preparation"]]
+  ],
+  "PEN108BS": [
+    ["Unit I", ["Listening lab exercises and note taking", "Pronunciation, stress and intonation practice", "Speaking activities, JAM and role play", "Group discussion and presentation practice", "Resume writing, mock interview and viva preparation"]]
+  ],
+  "PME109ES": [
+    ["Unit I", ["Workshop safety and measurement tools", "Carpentry and fitting practice", "Welding and sheet metal operations", "Plumbing, soldering and basic electrical work", "Model making, finishing and workshop record preparation"]]
+  ],
+  "PMA201BS": [
+    ["Unit I", ["First order differential equations", "Exact and reducible differential equations", "Applications of first order models"]],
+    ["Unit II", ["Higher order linear differential equations", "Homogeneous and non-homogeneous equations", "Applications to engineering systems"]],
+    ["Unit III", ["Series solutions of differential equations", "Special functions and orthogonal polynomials", "Boundary value problem concepts"]],
+    ["Unit IV", ["Vector functions and space curves", "Gradient, divergence and curl", "Directional derivatives and tangent planes"]],
+    ["Unit V", ["Line integrals and work done", "Surface and volume integrals", "Green, Gauss and Stokes theorems"]]
+  ],
+  "PPH202BS": [
+    ["Unit I", ["Wave optics and interference", "Diffraction and polarization", "Laser fundamentals and applications"]],
+    ["Unit II", ["Quantum mechanics concepts", "Schrodinger equation basics", "Quantum models and applications"]],
+    ["Unit III", ["Crystallography and crystal structures", "X-ray diffraction techniques", "Defects and solid state properties"]],
+    ["Unit IV", ["Semiconductor physics", "Magnetic and dielectric materials", "Superconductivity fundamentals"]],
+    ["Unit V", ["Fiber optics and communication basics", "Nanomaterials and characterization", "Modern engineering physics applications"]]
+  ],
+  "PME203ES": [
+    ["Unit I", ["Engineering drawing standards and CAD basics", "Construction of scales and conic sections", "Engineering curves and projections"]],
+    ["Unit II", ["Orthographic projections of points and lines", "Projection of planes", "Auxiliary views and true lengths"]],
+    ["Unit III", ["Projection of solids", "Sections of solids", "Development of surfaces"]],
+    ["Unit IV", ["Isometric projections and views", "Conversion between orthographic and isometric views", "Dimensioning standards"]],
+    ["Unit V", ["Computer aided drafting practice", "Assembly and detail drawing", "Graphic communication for engineering design"]]
+  ],
+  "PEE204ES": [
+    ["Unit I", ["DC circuit fundamentals", "Ohms law, Kirchhoffs laws and network analysis", "Electrical power and energy concepts"]],
+    ["Unit II", ["AC fundamentals and phasors", "Single phase circuits and resonance", "Three phase basics"]],
+    ["Unit III", ["Network theorems", "Measurement instruments and wiring basics", "Electrical safety practices"]],
+    ["Unit IV", ["Transformers and their characteristics", "DC machines fundamentals", "Applications of electrical machines"]],
+    ["Unit V", ["Induction and synchronous machine basics", "Domestic and industrial electrical installations", "Energy utilization and conservation concepts"]]
+  ],
+  "PPH206BS": [
+    ["Unit I", ["Optics experiments and data analysis", "Semiconductor and electrical measurements", "Laser and fiber optics experiments", "Graph plotting, error analysis and record work", "Practical viva and interpretation of results"]]
+  ],
+  "PEE209ES": [
+    ["Unit I", ["Verification of basic electrical laws", "Network theorem experiments", "AC measurements and resonance experiments", "Transformer and machine characteristics", "Wiring practice, safety and viva preparation"]]
+  ]
+}

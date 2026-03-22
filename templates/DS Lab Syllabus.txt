@@ -1,0 +1,62 @@
+PR25 B.Tech. CSE Syllabus     
+Pallavi Engineering College 
+PCS207ES: DATA STRUCTURES LAB 
+Common Syllabus for CSE, CSE-CS, CSE-DS, CSE-AI&ML, ECE, EEE 
+B.Tech. I Year II Sem.           
+Prerequisites: A course on “Programming for Problem Solving”. 
+Course Objectives: 
+1. It covers various concepts of C programming language 
+2. It introduces searching and sorting algorithms 
+3. It provides an understanding of data structures such as stacks and queues. 
+Course Outcomes: 
+L  T   P  C 
+0    0   2  1 
+1. Ability to develop C programs for computing and real-life applications using basic elements like 
+control statements, arrays, functions, pointers and strings, and data structures like stacks, queues 
+and linked lists. 
+2. Ability to Implement searching and sorting algorithms 
+List of Experiments 
+1. Write a program that uses functions to perform the following operations on singly linked list.: 
+i) Creation 
+ii) Insertion 
+iii) Deletion 
+iv) Traversal 
+2. Write a program that uses functions to perform the following operations on doubly linked list.: 
+i) Creation 
+ii) Insertion 
+iii) Deletion 
+iv) Traversal 
+3. Write a program that uses functions to perform the following operations on circular linked list.: 
+i) Creation 
+ii) Insertion 
+iii) Deletion 
+iv) Traversal 
+4. Write a program that implement stack (its operations) using 
+i) Arrays 
+ii) ADT 
+5. Write a program that implement Queue (its operations) using 
+i) Arrays 
+ii) ADT 
+6. Write a program that implements the following sorting methods to sort a given list of integers in 
+ascending order 
+i) Radix Sort,          
+ii) Heap sort,         
+iii) Shell Sort,        
+iv) Tree Sort 
+7. Write a program to implement the tree traversal methods (Recursive and Non-Recursive). 
+8. Write a program to implement 
+i) Binary Search tree 
+ii) B Trees 
+iii) B+ Trees 
+iv) AVL trees v) Red - Black trees 
+9. Write a program to implement the graph traversal methods. 
+10. Write a program to implement the following Hash Functions: i) Division Method, ii) 
+Multiplication Method, iii) Mid-square Method, iv) Folding Method 
+TEXT BOOKS: 
+1. Fundamentals of Data Structures in C, 2nd Edition, E. Horowitz, S. Sahni and Susan Anderson 
+Freed, Universities Press. 
+2. Data Structures using C – A. S. Tanenbaum, Y. Langsam, and M. J. Augenstein, PHI/Pearson 
+Education. 
+REFERENCE BOOK: 
+1. Data Structures: A Pseudocode Approach with C, 2nd Edition, R. F. Gilberg and B. A. Forouzan, 
+Cengage Learning

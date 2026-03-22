@@ -1,0 +1,439 @@
+QMainWindow {
+    background: {PALETTE[canvas]};
+    color: {PALETTE[text]};
+}
+QWidget {
+    color: {PALETTE[text]};
+}
+QFrame#TopBar {
+    background: {PALETTE[topbar]};
+    border: 1px solid {PALETTE[topbar_edge]};
+    border-radius: 12px;
+}
+QLabel#TopBarTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: {PALETTE[text]};
+}
+QLabel#TopBarSubtitle {
+    font-size: 11px;
+    color: {PALETTE[text_muted]};
+}
+QLabel#TopBarBadge {
+    background: #121a25;
+    border: 1px solid {PALETTE[border]};
+    border-radius: 10px;
+    padding: 8px 12px;
+    color: {PALETTE[text_soft]};
+    font-size: 11px;
+}
+QLabel#TopBarGhostBadge {
+    background: transparent;
+    border: 1px solid {PALETTE[border]};
+    border-radius: 10px;
+    padding: 8px 12px;
+    color: {PALETTE[text_muted]};
+    font-size: 11px;
+}
+QPushButton#TopBarActionButton {
+    background: #1b2633;
+    border: 1px solid {PALETTE[border_strong]};
+    border-radius: 10px;
+    padding: 8px 14px;
+    color: {PALETTE[text]};
+    font-size: 11px;
+    font-weight: 700;
+}
+QPushButton#TopBarActionButton:hover {
+    background: #223244;
+    border-color: #49607a;
+}
+QPushButton#TopBarActionButton:disabled {
+    background: #121922;
+    border-color: {PALETTE[border]};
+    color: {PALETTE[text_soft]};
+}
+QLabel#TopBarStatus {
+    background: {PALETTE[panel_alt]};
+    border: 1px solid {PALETTE[border_strong]};
+    border-radius: 10px;
+    padding: 8px 12px;
+    min-width: 118px;
+    font-weight: 700;
+    color: {PALETTE[text]};
+    font-size: 11px;
+}
+QLabel#TopBarStatus[tone="info"] {
+    background: #1d2530;
+    border-color: {PALETTE[border_strong]};
+}
+QLabel#TopBarStatus[tone="ready"] {
+    background: {PALETTE[accent_soft]};
+    border-color: #245639;
+    color: #ddffe8;
+}
+QLabel#TopBarStatus[tone="success"] {
+    background: {PALETTE[success_soft]};
+    border-color: #245639;
+    color: #ddffe8;
+}
+QLabel#TopBarStatus[tone="error"] {
+    background: {PALETTE[danger_soft]};
+    border-color: #6c2a36;
+    color: #ffd6da;
+}
+QSplitter::handle {
+    background: transparent;
+}
+QSplitter::handle:horizontal {
+    width: 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    background: {PALETTE[splitter]};
+}
+QStatusBar#AppStatusBar {
+    background: #0d1320;
+    color: {PALETTE[text_muted]};
+    border-top: 1px solid {PALETTE[border]};
+}
+QStatusBar::item {
+    border: none;
+}
+QLabel#StatusBarVersion {
+    color: {PALETTE[text_soft]};
+    padding-right: 4px;
+}
+QScrollArea#WorkflowScroll {
+    background: transparent;
+}
+QFrame#WorkspacePanel,
+QFrame#SectionPanel {
+    background: {PALETTE[panel]};
+    border: 1px solid {PALETTE[border]};
+    border-radius: {RADII[panel]}px;
+}
+QFrame#WorkspaceHeaderBand,
+QFrame#ResultsShell {
+    background: {PALETTE[surface_soft]};
+    border: 1px solid {PALETTE[border]};
+    border-radius: 14px;
+}
+QLabel#SectionTitle,
+QLabel#WorkspaceTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: {PALETTE[text]};
+    letter-spacing: 0.8px;
+}
+QLabel#SectionSubtitle,
+QLabel#WorkspaceSubtitle,
+QLabel#InlineHint {
+    color: {PALETTE[text_muted]};
+    font-size: 11px;
+}
+QLabel#ResultContextLabel {
+    color: {PALETTE[text_muted]};
+    font-size: 11px;
+    background: #121a25;
+    border: 1px solid {PALETTE[border]};
+    border-radius: 9px;
+    padding: 8px 10px;
+}
+QLabel#SectionTitle {
+    padding-left: 10px;
+    border-left: 2px solid {PALETTE[accent]};
+}
+QLabel#WorkspaceBadge {
+    color: #d9ffe5;
+    background: {PALETTE[accent_soft]};
+    border: 1px solid #245639;
+    border-radius: {RADII[pill]}px;
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: 11px;
+}
+QFrame#UploadCard {
+    background: {PALETTE[surface]};
+    border: 1px solid {PALETTE[border]};
+    border-radius: 10px;
+}
+QFrame#UploadCard[state="loaded"] {
+    border: 1px solid #245639;
+    background: #121c18;
+}
+QFrame#UploadCard[state="invalid"] {
+    border: 1px solid #5a2230;
+    background: #1a1317;
+}
+QLabel#CardHint,
+QLabel#FormatLabel {
+    color: {PALETTE[text_soft]};
+    font-size: 11px;
+}
+QLabel#CardPathLabel {
+    background: transparent;
+    border: none;
+    padding: 0 4px;
+    color: {PALETTE[text_soft]};
+    font-size: 12px;
+    font-style: italic;
+}
+QLabel#StatusBadge {
+    border-radius: 9px;
+    padding: 6px 10px;
+    font-weight: 700;
+    font-size: 11px;
+}
+QLabel#StatusBadge[state="empty"] {
+    color: #f0c36a;
+    background: {PALETTE[warning_soft]};
+}
+QLabel#StatusBadge[state="loaded"] {
+    color: #6deb93;
+    background: {PALETTE[success_soft]};
+}
+QLabel#StatusBadge[state="invalid"] {
+    color: #ff8e96;
+    background: {PALETTE[danger_soft]};
+}
+QLabel#SubsectionTitle {
+    font-size: 12px;
+    font-weight: 700;
+    color: {PALETTE[text]};
+}
+QLabel#MetaBanner {
+    background: #132133;
+    color: #c7ddff;
+    border: 1px solid #214061;
+    border-radius: 9px;
+    padding: 8px 10px;
+    font-size: 11px;
+    font-weight: 600;
+}
+QLabel#FieldLabel {
+    color: {PALETTE[text]};
+    font-size: 12px;
+    font-weight: 700;
+    padding-right: 6px;
+}
+QFrame#StatusStrip {
+    border-radius: 14px;
+    border: 1px solid transparent;
+}
+QFrame#StatusStrip[tone="info"] {
+    background: {PALETTE[info_soft]};
+    border-color: #1f435e;
+}
+QFrame#StatusStrip[tone="success"] {
+    background: {PALETTE[success_soft]};
+    border-color: #235236;
+}
+QFrame#StatusStrip[tone="error"] {
+    background: {PALETTE[danger_soft]};
+    border-color: #6c2a36;
+}
+QFrame#StatusStrip[tone="ready"] {
+    background: {PALETTE[accent_soft]};
+    border-color: #245639;
+}
+QLabel#StatusIcon {
+    min-width: 26px;
+}
+QLabel#StatusStripTitle {
+    font-weight: 700;
+    font-size: 13px;
+    color: {PALETTE[text]};
+}
+QLabel#StatusStripDetail {
+    color: {PALETTE[text_muted]};
+    font-size: 12px;
+}
+QPushButton {
+    border: none;
+    border-radius: {RADII[field]}px;
+    padding: 10px 16px;
+    background: {PALETTE[panel_alt]};
+    color: {PALETTE[text]};
+    font-weight: 600;
+}
+QPushButton:hover {
+    background: #24303d;
+}
+QPushButton:pressed {
+    background: #18202a;
+}
+QPushButton#PrimaryButton {
+    background: {PALETTE[primary]};
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+}
+QPushButton#PrimaryButton:hover {
+    background: {PALETTE[primary_hover]};
+}
+QPushButton#AccentButton {
+    background: {PALETTE[accent]};
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+}
+QPushButton#AccentButton:hover {
+    background: #38c06d;
+}
+QPushButton#UploadButton {
+    background: #1e2b3a;
+    border: 1px solid {PALETTE[border_strong]};
+    text-align: left;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: {PALETTE[text]};
+}
+QPushButton#UploadButton:hover {
+    background: #253444;
+    border-color: {PALETTE[primary]};
+}
+QPushButton#SecondaryButton {
+    background: #202834;
+    font-size: 12px;
+}
+QPushButton:disabled {
+    background: #171c24;
+    color: #667385;
+}
+QLineEdit#DataField,
+QComboBox#DataField {
+    border: 1px solid {PALETTE[border_strong]};
+    border-radius: {RADII[field]}px;
+    padding: 8px 12px;
+    background: {PALETTE[surface]};
+    selection-background-color: {PALETTE[selection]};
+    font-size: 12px;
+}
+QLineEdit#DataField:focus,
+QComboBox#DataField:focus {
+    border: 1px solid {PALETTE[primary]};
+}
+QComboBox#DataField::drop-down {
+    border: none;
+    width: 30px;
+}
+QAbstractItemView {
+    background: {PALETTE[surface]};
+    color: {PALETTE[text]};
+    border: 1px solid {PALETTE[border_strong]};
+    selection-background-color: {PALETTE[selection]};
+}
+QFrame#SummaryChip {
+    background: {PALETTE[surface]};
+    border: 1px solid {PALETTE[border]};
+    border-radius: 12px;
+}
+QLabel#SummaryValue {
+    font-size: 20px;
+    font-weight: 700;
+    color: {PALETTE[primary]};
+}
+QLabel#SummaryCaption {
+    color: {PALETTE[text_muted]};
+    font-size: 11px;
+    font-weight: 600;
+}
+QFrame#EmptyStateCard {
+    min-width: 420px;
+    max-width: 620px;
+    background: {PALETTE[surface]};
+    border: 1px solid {PALETTE[border]};
+    border-radius: {RADII[panel]}px;
+}
+QLabel#EmptyStateTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: {PALETTE[text]};
+}
+QLabel#EmptyStateBody,
+QLabel#EmptyStateSteps {
+    color: {PALETTE[text_muted]};
+    font-size: 13px;
+}
+QTabWidget#PreviewTabs::tab-bar {
+    alignment: center;
+}
+QTabWidget#PreviewTabs::pane {
+    border: none;
+    background: transparent;
+    padding: 8px 4px 0 4px;
+    top: 0px;
+}
+QTabBar::tab {
+    background: #20262f;
+    color: {PALETTE[text_muted]};
+    padding: 8px 16px;
+    margin-right: 6px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+QTabBar::tab:selected {
+    background: {PALETTE[accent]};
+    color: #ffffff;
+}
+QTableView#PreviewTable {
+    background: {PALETTE[surface]};
+    border: 1px solid {PALETTE[border]};
+    border-radius: 10px;
+    alternate-background-color: #141b24;
+    selection-background-color: {PALETTE[selection]};
+    selection-color: {PALETTE[text]};
+    gridline-color: transparent;
+}
+QTableCornerButton::section {
+    background: {PALETTE[table_header]};
+    border: none;
+}
+QHeaderView::section {
+    background: {PALETTE[table_header]};
+    color: #ffffff;
+    border: none;
+    border-bottom: 1px solid {PALETTE[border]};
+    padding: 9px;
+    font-weight: 700;
+}
+QScrollBar:vertical {
+    background: #10151d;
+    width: 12px;
+    margin: 8px 0 8px 0;
+}
+QScrollBar::handle:vertical {
+    background: #4f5d70;
+    min-height: 40px;
+    border-radius: 6px;
+}
+QScrollBar:horizontal {
+    background: #10151d;
+    height: 12px;
+    margin: 0 8px 0 8px;
+}
+QScrollBar::handle:horizontal {
+    background: #4f5d70;
+    min-width: 40px;
+    border-radius: 6px;
+}
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical,
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    border: none;
+    background: transparent;
+    height: 0px;
+}
+QMessageBox {
+    background: {PALETTE[panel]};
+}
+QMessageBox QLabel {
+    color: {PALETTE[text]};
+    font-size: 13px;
+}
+QMessageBox QPushButton {
+    min-width: 70px;
+    padding: 8px 16px;
+}

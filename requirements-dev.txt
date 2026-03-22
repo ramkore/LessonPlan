@@ -1,0 +1,9 @@
+-r requirements.txt
+pytest>=8.0,<9
+pytest-cov>=6.0,<7
+ruff>=0.11,<1
+mypy>=1.14,<2
+pre-commit>=4.0,<5
+pyinstaller>=6.0,<7
+pandas-stubs>=2.0
+types-Pillow>=10.0

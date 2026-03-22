@@ -1,0 +1,56 @@
+PR25 B.Tech. CSE Syllabus     
+Pallavi Engineering College 
+PCS205ES: DATA STRUCTURES 
+Common Syllabus for CSE, CSE-CS, CSE-DS, CSE-AI&ML, ECE, EEE 
+B.Tech. I Year II Sem.           
+Prerequisites: A course on “Programming for Problem Solving 
+Course Objectives 
+ 
+ 
+Exploring basic data structures such as stacks and queues. 
+L  T   P  C 
+3    0   0  3 
+Introduces a variety of data structures such as hash tables, search trees, tries, heaps, graphs. 
+ 
+Introduces sorting and pattern matching algorithms. 
+Course Outcomes 
+ 
+ 
+ 
+ 
+Ability to select the data structures that efficiently model the information in a problem. 
+Ability to assess efficiency trade-offs among different data structure implementations or 
+combinations. 
+Implement and know the application of algorithms for sorting and pattern matching. 
+Design programs using a variety of data structures, including hash tables, binary and general 
+tree structures, search trees, tries, heaps, graphs, and AVL-trees. 
+UNIT – I 
+Introduction to Data Structures: Basic Terminology, Classification of Data Structures, Operation on Data Structures, 
+abstract data types, selecting a Data Structure, Linear list – Introduction, singly linked list, Circular Linked Lists, 
+Doubly Linked List, Stacks- Operations, Stack algorithm, Stack ADT, Stack applications, Queues- operations, Queue 
+Algorithm, Queue ADT, Queue Applications. 
+UNIT - II 
+Trees: Introduction, Types of Trees, creating a Binary Tree from a General Tree, traversing a Binary Tree, Binary Search 
+Trees (BST), BST Operations- Searching, Insertion and Deletion, BST ADT, BST Applications, Threaded Binary Trees, 
+AVL Trees, Red –Black Trees, Splay Trees 
+UNIT – III 
+Multi way Search Trees: Introduction, B Trees, B Trees ADT, 2-3 Trees, 2-3- Tree, B* Tree, B+ Trees Heaps: Binary 
+Heaps, Binomial heaps, Fibonacci heaps, Comparison of Various Heaps, Applications Searching: Introduction, 
+Interpolation Search, Jump search 
+UNIT - IV 
+Graphs: Introduction, Directed Graphs, Bi connected Components, Representation of Graphs, Graph Traversal 
+Algorithms, Graph ADT, Applications of Graphs 
+Sorting: Radix Sort, Heap sort, Shell Sort, Tree Sort, 
+UNIT – V 
+Hashing and Collision: Introduction, Hash Tables, Hash Functions, Different Hash Functions: Division Method, 
+Multiplication Method, Mid-square Method, Folding Method; collisions: Collision Resolution by Open Addressing, 
+Collision Resolution by Chaining 
+Files and their Organization: Introduction, Data hierarchy, File Attributes, Text and Binary Files, Basic File 
+Operations, File Organization, Indexing 
+TEXTBOOKS: 
+1. Data Structures: A Pseudocode Approach with C, 2 nd Edition, R. F. Gilberg and B.A.Forouzan, 
+Cengage Learning 
+2. Data Structure using C– Reema Thareja, 3rd Edition, Oxford University Press. 
+REFERENCE: 
+1. Data Structures using C – A. S.Tanenbaum, Y. Langsam, and M.J. Augenstein, PHI/Pearson 
+Education. 

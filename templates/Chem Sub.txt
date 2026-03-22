@@ -1,0 +1,84 @@
+R25 B.Tech. ECE Syllabus JNTUH Hyderabad
+CH202BS: ENGINEERING CHEMISTRY
+B.Tech. I Year II Sem. L T P C
+ 3 0 0 3
+Course Objectives:
+1. To develop adaptability to new advances in Engineering Chemistry and acquire the essential
+skills to become a competent engineering professional.
+2. To understand the industrial significance of water treatment, fundamental principles of battery
+chemistry, and the impact of corrosion along with its control methods for structural protection.
+3. To impart foundational knowledge of various energy sources and their practical applications in
+engineering.
+4. To equip students with an understanding of smart materials, biosensors, and analytical
+techniques applicable in engineering, industrial, environmental, and biomedical fields.
+Course Outcomes:
+1. Students will be able to understand the fundamental properties of water and its applications in
+both domestic and industrial purposes.
+2. Students will gain basic knowledge of electrochemical processes and their relevance to
+corrosion and its control methods.
+3. Students will comprehend the significance and practical applications of batteries and various
+energy sources, enhancing their potential as future engineers and entrepreneurs.
+4. Students will learn the basic concepts and properties of polymers and other engineering
+materials.
+5. Students will be able to apply the principles of UV-Visible, IR spectroscopy and Raman
+spectroscopy in analyzing pollutants in dye industries and biomedical applications.
+UNIT-I: Water and its treatment: [8]
+Introduction- Hardness, types, degree of hardness and units. Estimation of hardness of water by
+complexometric method - Numerical problems. Potable water and its specifications (WHO) - Steps
+involved in the treatment of potable water - Disinfection of potable water by chlorination and breakpoint chlorination. Defluoridation - Nalgonda technique.
+Boiler troubles: Scales, Sludges and Caustic embrittlement. Internal treatment of boiler feed water -
+Calgon conditioning, Phosphate conditioning, Colloidal conditioning. External treatment methods -
+Softening of water by ion- exchange processes. Desalination of brackish water – Reverse osmosis.
+UNIT-II: Electrochemistry and Corrosion: [8]
+Introduction- Electrode potential, standard electrode potential, Nernst equation (no derivation),
+electrochemical cell - Galvanic cell, cell representation, EMF of cell - Numerical problems. Types of
+electrodes, reference electrodes - Primary reference electrode - Standard Hydrogen Electrode (SHE),
+Secondary reference electrode - Calomel electrode. Construction, working and determination of pH of
+unknown solution using SHE and Calomel electrode.
+Corrosion: Introduction- Definition, causes and effects of corrosion – Theories of corrosion, chemical
+and electrochemical theories of corrosion, Types of corrosion: galvanic, water-line and pitting
+corrosion. Factors affecting rate of corrosion - Nature of the metal, Nature of the corroding
+environment. Corrosion control methods - Cathodic protection Methods - Sacrificial anode and
+impressed current methods.
+UNIT–III: Energy sources: [8]
+Batteries: Introduction – Classification of batteries - Primary, secondary and reserve batteries with
+examples. Construction, working and applications of Zn-air and Lithium ion battery. Fuel Cells –
+Differences between a battery and a fuel cell, Construction and applications of Direct Methanol Fuel
+Cell (DMFC).
+R25 B.Tech. ECE Syllabus JNTUH Hyderabad
+Fuels: Introduction and characteristics of a good fuel, Calorific value – Units - HCV, LCV- Dulongs
+formula - Numerical problems.
+Fossil fuels: Introduction, Classification, Petroleum - Refining of Crude oil, Cracking - Types of
+cracking - Moving bed catalytic cracking. LPG and CNG composition and uses.
+Synthetic Fuels: Fischer-Tropsch process, Introduction and applications of Hythane and Green
+Hydrogen.
+UNIT - IV: Polymers: [8]
+Definition - Classification of polymers: Based on origin and tacticity with examples – Types of
+polymerization - Addition (free radical addition mechanism) and condensation polymerization.
+Plastics, Elastomers and Fibers: Definition and applications (PVC, Buna-S, Nylon-6,6). Differences
+between themoplastics and thermo setting plastics, Fiber reinforced plastics (FRP).
+Conducting polymers: Definition and Classification with examples - Mechanism of conduction in transpoly-acetylene and applications of conducting polymers.
+Biodegradable polymers: Polylactic acid and its applications.
+UNIT-V- Advanced Functional Materials: [8]
+Smart materials: Introduction, Classification with examples - Shape Memory Alloys – Nitinol,
+Piezoelectric materials – quartz and their engineering applications.
+Biosensor - Definition, Amperometric Glucose monitor sensor.
+Interpretative spectroscopic applications of UV-Visible spectroscopy for Analysis of pollutants in dye
+industry, IR spectroscopy in night vision-security, Pollution Under Control- CO sensor (Passive
+Infrared detection), Raman spectroscopy (application) - Tumour detection in medical applications.
+TEXT BOOKS:
+1. Engineering Chemistry by P.C. Jain and M. Jain, Dhanpatrai Publishing Company, 2010.
+2. Engineering Chemistry by Rama Devi, Dr. P. Aparna and Rath, Cengage learning, 2025.
+REFERENCE BOOKS:
+1. Engineering Chemistry: by Thirumala Chary Laxminarayana & Shashikala, Pearson
+Publications (2020)
+2. Engineering Chemistry by Shashi Chawla, Dhanpatrai and Company (P) Ltd. Delhi 2011.
+3. Engineering Chemistry by Shikha Agarwal, Cambridge University Press, Delhi 2015.
+4. Engineering Analysis of Smart Material Systems by Donald J. Leo, Wiley, 2007.
+5. Challenges and Opportunities in Green Hydrogen by Editors: Paramvir Singh, Avinash Kumar
+Agarwal, Anupma Thakur, R.K Sinha.
+6. Raman Spectroscopy in Human Health and Biomedicine, https://www.worldscientific.com/
+doi/epdf/10.1142/13094
+7. E-Content- https://doi.org/10.1142/13094 | October 2023
+8. E-books:
+https://archive.org/details/EngineeringChemistryByShashiChawla/page/n11/mode/2u 

@@ -1,0 +1,56 @@
+R25 B.Tech. ECE Syllabus JNTUH Hyderabad
+CH206BS: ENGINEERING CHEMISTRY LAB
+B.Tech. I Year II Sem. L T P C
+0 0 2 1
+Course Description: The course includes experiments based on fundamental principles of chemistry
+essential for engineering students, aiming to develop practical skills and reinforce theoretical
+concepts.
+Course Objectives
+1. Students will understand and perform experiments based on core chemical principles relevant
+to engineering applications.
+2. Students will learn to estimate the hardness of water to assess its suitability for drinking
+purposes.
+3. Students will acquire the ability to perform acid-base titrations using instrumental methods
+such as conductometry, potentiometry, and pH metry.
+4. Students will gain hands-on experience in synthesizing polymers like Bakelite and Nylon – 6,
+6 in the laboratory.
+5. Students will learn to determine the unknown concentration of potassium permanganate
+(KMnO4) using a calibration curve.
+Course Outcomes:
+1. Students will develop practical skills through hands-on chemistry experiments relevant to
+engineering.
+2. Students will learn to determine important parameters such as water hardness and the
+corrosion rate of mild steel under various conditions.
+3. Students will be able to apply techniques like conductometry, potentiometry, and pH metry to
+determine concentrations or equivalence points in acid-base reactions.
+4. Students will gain experience in synthesizing polymers such as Bakelite and Nylon-6,6.
+5. Students will understand the working principle of colorimetry and the relationship between
+absorbance and concentration (Beer-Lambert Law).
+List of Experiments:
+I. Volumetric Analysis: Estimation of Hardness of water by EDTA Complexometry method.
+II. Conductometry:
+1. Estimation of the concentration of strong acid by Conductometry.
+2. Estimation of the concentration of strong and weak acid in an acid mixture by
+Conductometry.
+III. Potentiometry:
+1. Estimation of concentration of Fe+2ion by Potentiometry using KMnO4.
+2. Estimation of concentration of strong acid with strong base by Potentiometry using
+quinhydrone
+IV. pH Metry: Determination of an acid concentration using pH meter.
+V. Colorimetry: Verification of Lambert-Beer’s law using KMnO4.
+VI. Preparations:
+1. Preparation of Bakelite.
+2. Preparation Nylon – 6, 6.
+VII. Corrosion: Determination of rate of corrosion of mild steel in the presence and absence of
+inhibitor.
+VIII. Virtual lab experiments:
+1. Construction of Fuel cell and it’s working.
+2. Smart materials for Biomedical applications
+3. Batteries for electrical vehicles.
+4. Functioning of solar cell and its applications.
+REFERENCE BOOKS:
+1. Lab manual for Engineering chemistry by B. Ramadevi and P. Aparna, S Chand Publications,
+New Delhi (2022)
+2. Vogel’s text book of practical organic chemistry 5th edition
+3. Inorganic Quantitative analysis by A.I. Vogel, ELBS Publications.
+4. College Practical Chemistry by V.K. Ahluwalia, Narosa Publications Ltd. New Delhi (2007).

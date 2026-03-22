@@ -1,0 +1,67 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+
+# Pytest artifacts
+.pytest_cache/
+pytest-cache-files-*/
+.coverage
+htmlcov/
+coverage.xml
+
+# Application cache
+.cache/
+
+# Generated output (user documents, not source)
+output/
+
+# Development scratch directories
+tmp/
+temp_ui_ref/
+
+# Logs
+logs/
+*.log
+
+# IDE / editor
+.idea/
+.vscode/
+*.suo
+*.user
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Input files (user-supplied documents, not committed)
+input/academic_calendar/
+input/holiday_list/
+input/timetable/
+input/syllabus/
+.claude/
+
+# Database
+lesson_plan.db
+
+# Ruff cache
+.ruff_cache/
+
+# Node modules (safety net)
+node_modules/

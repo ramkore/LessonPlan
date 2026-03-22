@@ -1,0 +1,27 @@
+PR25 B.Tech. CSE Syllabus
+Pallavi Engineering College
+PCS206ES: DATA STRUCTURES LAB
+B.Tech. I Year II Sem.           L  T  P  C
+                                 0  0  3  1.5
+
+Course Objectives
+1. Implement basic data structures such as linked lists, stacks, and queues.
+2. Practice tree and graph algorithms.
+
+Course Outcomes
+CO1: Implement and test various data structure operations.
+CO2: Analyze the performance of data structure implementations.
+
+List of Experiments
+Task 1: Write a C program to implement Singly Linked List operations - insertion, deletion, display
+Task 2: Write a C program to implement Doubly Linked List operations
+Task 3: Write a C program to implement Stack using arrays and linked lists
+Task 4: Write a C program to implement Queue using arrays and linked lists
+Task 5: Write a C program to implement Circular Queue
+Task 6: Write a C program to implement Binary Search Tree operations
+Task 7: Write a C program to implement AVL Tree operations
+Task 8: Write a C program to implement BFS and DFS on a graph
+Task 9: Write a C program to implement Heap Sort
+Task 10: Write a C program to implement Hashing with collision resolution
+Task 11: Write a C program to implement B-Tree operations
+Task 12: Write a C program to implement Radix Sort

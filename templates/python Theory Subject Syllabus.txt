@@ -1,0 +1,53 @@
+PR25 B.Tech. CSE Syllabus     
+Pallavi Engineering College 
+PCS204ES: PYTHON PROGRAMMING 
+Common Syllabus for ECE, EEE, Civil Engineering 
+B.Tech. I Year II Sem. 
+Prerequisites: Basic knowledge of computer fundamentals, C programming. 
+Course Objectives: 
+Introduce the fundamentals of Python programming for problem-solving. 
+1. Develop skills to write structured, modular, and efficient Python code. 
+2. Enable students to use Python’s built-in data structures and libraries effectively. 
+L  T  P  C 
+3   
+0  
+3. Provide knowledge on file handling, exception handling, and object-oriented programming in 
+Python. 
+0    3 
+4. Equip students with the ability to apply Python for real-world applications including data 
+processing and automation. 
+Course Outcomes: 
+1. Write Python programs using variables, operators, expressions, and control structures. 
+2. Implement Python programs using built-in data structures like lists, tuples, sets, and 
+dictionaries. 
+3. Apply modular and object-oriented programming principles in Python. 
+4. Handle files, exceptions, and apply Python libraries for problem-solving. 
+5. Develop small-scale applications in Python for automation and data manipulation. 
+UNIT-1 – Introduction to Python and Basics of Programming 
+Introduction to Python: Features, Applications, Installation, IDEs, Python Syntax, Indentation, Comments, Variables, 
+Data Types, Type Casting, Operators: Arithmetic, Relational, Logical, Assignment, Membership, Identity, Bitwise, 
+Input/Output functions (input(), print()), Control Structures: if, if-else, if-elif-else, Nested Conditions, Looping: for, 
+while, Nested Loops, break, continue, pass. 
+UNIT-2 – Data Structures in Python 
+Strings: Creation, Indexing, Slicing, Methods, String Formatting, Lists: Creation, Indexing, Slicing, List Comprehension, 
+Methods, Tuples: Properties, Indexing, Methods, Sets: Creation, Operations, Methods, Dictionaries: Creation, Access, 
+Methods, Dictionary Comprehension, Iterating over data structures. 
+UNIT-3 – Functions and Modules 
+Functions: Defining, Calling, Parameters, Return Values, Types of Arguments: Positional, Keyword, Default, Variable 
+Length, Scope of Variables: Local and Global, Lambda Functions, Map, Filter, Reduce, Recursion in Python, Modules: 
+Importing, Creating User-defined Modules, Standard Modules (math, random, datetime), Packages in Python. 
+UNIT-4 – File Handling and Exception Handling 
+File Handling: Opening, Reading, Writing, Appending, File Modes, File Methods, Working with CSV and JSON Files, 
+Exception Handling: try, except, else, finally, Built-in Exceptions, Raising Exceptions, Introduction to Regular 
+Expressions (re module). 
+UNIT-5 – Object-Oriented Programming and Applications 
+OOP Basics: Classes, Objects, Attributes, Methods, Constructor ( init ), self keyword, Inheritance: Single, Multiple, 
+Multilevel, Hierarchical, Method Overriding, Method Overloading (conceptual), Encapsulation and Polymorphism, 
+Application Development: Data Processing Script, Basic Calculator, File Organizer, Simple Data Analysis with pandas. 
+TEXT BOOKS: 
+1. Python Programming: Using Problem Solving Approach by Reema Thareja. 
+2. Python Crash Course by Eric Matthes, Learning Python by Mark Lutz. 
+REFERENCE BOOKS: 
+1. Introduction to Python Programming by Gowrishankar S., Veena A. 
+2. Python Cookbook by David Beazley and Brian K. Jones. 
+Fluent Python by Luciano Ramalho, Automate the Boring Stuff with Python by Al Sweigart. 
