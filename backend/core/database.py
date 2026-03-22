@@ -7,9 +7,13 @@ from sqlmodel import Session, SQLModel, create_engine
 
 from .config import settings
 
+# check_same_thread is SQLite-only; Postgres doesn't need/want it
+_is_sqlite = settings.DATABASE_URL.startswith("sqlite")
+_connect_args = {"check_same_thread": False} if _is_sqlite else {}
+
 engine = create_engine(
     settings.DATABASE_URL,
-    connect_args={"check_same_thread": False},
+    connect_args=_connect_args,
     echo=False,
 )
 
