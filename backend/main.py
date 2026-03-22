@@ -33,9 +33,12 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Lesson Plan Generator API", version="1.0.0", lifespan=lifespan)
 
+import os  # noqa: E402
+
+_cors_origins = os.getenv("CORS_ORIGINS", "http://localhost:3000")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[o.strip() for o in _cors_origins.split(",")],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
