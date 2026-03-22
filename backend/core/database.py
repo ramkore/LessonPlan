@@ -1,8 +1,7 @@
-"""SQLite database engine and session management."""
+"""Database engine and session management."""
 from __future__ import annotations
 
-import sqlite3
-
+from sqlalchemy import inspect, text
 from sqlmodel import Session, SQLModel, create_engine
 
 from .config import settings
@@ -24,17 +23,15 @@ def create_db_and_tables() -> None:
 
 def run_migrations() -> None:
     """Add missing columns to existing tables."""
-    db_path = settings.DATABASE_URL.replace("sqlite:///", "")
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-
-    cursor.execute("PRAGMA table_info(timetableentry)")
-    columns = [row[1] for row in cursor.fetchall()]
+    insp = inspect(engine)
+    if "timetableentry" not in insp.get_table_names():
+        return
+    columns = [col["name"] for col in insp.get_columns("timetableentry")]
     if "is_lab" not in columns:
-        cursor.execute("ALTER TABLE timetableentry ADD COLUMN is_lab BOOLEAN NOT NULL DEFAULT 0")
-        conn.commit()
-
-    conn.close()
+        with engine.begin() as conn:
+            conn.execute(
+                text("ALTER TABLE timetableentry ADD COLUMN is_lab BOOLEAN NOT NULL DEFAULT FALSE")
+            )
 
 
 def get_session() -> Session:
