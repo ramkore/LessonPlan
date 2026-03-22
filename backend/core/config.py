@@ -20,3 +20,7 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+
+# Railway injects DATABASE_URL with "postgres://" but SQLAlchemy requires "postgresql://"
+if settings.DATABASE_URL.startswith("postgres://"):
+    settings.DATABASE_URL = settings.DATABASE_URL.replace("postgres://", "postgresql://", 1)
