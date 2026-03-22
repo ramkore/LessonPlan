@@ -1,5 +1,9 @@
+[phases.setup]
+nixPkgs = ["python311", "tesseract", "gcc"]
+nixLibs = ["zlib", "libjpeg", "libpng"]
+
 [phases.install]
 cmds = ["pip install -r backend/requirements.txt"]
 
 [start]
-cmd = "uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8000}"
+cmd = "python -m uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8000}"
