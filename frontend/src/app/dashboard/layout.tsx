@@ -26,6 +26,7 @@ import {
   Menu,
   X,
   GraduationCap,
+  ShieldCheck,
 } from "lucide-react";
 
 const navItems = [
@@ -35,7 +36,8 @@ const navItems = [
   { label: "Timetable", href: "/dashboard/timetable", icon: Clock },
   { label: "Syllabus", href: "/dashboard/syllabus", icon: BookOpen },
   { label: "Generate", href: "/dashboard/generate", icon: Sparkles },
-];
+  { label: "Admin", href: "/dashboard/admin", icon: ShieldCheck, adminOnly: true },
+] as const;
 
 export default function DashboardLayout({
   children,
@@ -118,7 +120,7 @@ export default function DashboardLayout({
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto px-3 py-4">
           <ul className="flex flex-col gap-1">
-            {navItems.map((item) => {
+            {navItems.filter((item) => !("adminOnly" in item && item.adminOnly) || user?.role === "admin").map((item) => {
               const isActive =
                 pathname === item.href ||
                 (item.href !== "/dashboard" &&

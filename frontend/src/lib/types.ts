@@ -65,3 +65,34 @@ export interface LessonPlanHistoryItem {
   planned_lectures: number;
   generated_at: string;
 }
+
+export interface AdminStats {
+  total_users: number;
+  total_admins: number;
+  total_faculty: number;
+  total_plans: number;
+  plans_this_month: number;
+}
+
+export interface AdminUser {
+  id: number;
+  email: string;
+  full_name: string;
+  role: string;
+  created_at: string;
+  plan_count: number;
+}
+
+export interface AdminPlan {
+  id: number;
+  user_id: number;
+  user_email: string;
+  faculty_name: string;
+  subject_name: string;
+  course_code: string;
+  branch: string;
+  semester: string;
+  is_lab: boolean;
+  planned_lectures: number;
+  generated_at: string;
+}
