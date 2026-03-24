@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/lib/auth";
 import { api } from "@/lib/api";
 import type { CalendarEntry } from "@/lib/types";
 import { toast } from "sonner";
@@ -51,6 +53,10 @@ import {
 const EVENT_TYPES = ["teaching", "exam", "vacation", "other"] as const;
 
 export default function CalendarPage() {
+  const { user } = useAuth();
+  const router = useRouter();
+  const isAdmin = user?.role === "admin";
+
   const [entries, setEntries] = useState<CalendarEntry[]>([]);
   const [parsedEntries, setParsedEntries] = useState<CalendarEntry[]>([]);
   const [loading, setLoading] = useState(true);
@@ -72,10 +78,19 @@ export default function CalendarPage() {
   const [editEventType, setEditEventType] = useState<string>("teaching");
   const [updating, setUpdating] = useState(false);
 
+  // Redirect non-admin users away from this page
+  useEffect(() => {
+    if (user && !isAdmin) {
+      router.push("/dashboard");
+    }
+  }, [user, isAdmin, router]);
+
+  const apiBase = "/api/admin/calendar";
+
   const fetchEntries = useCallback(async () => {
     try {
       setLoading(true);
-      const data = await api.get<CalendarEntry[]>("/api/calendar");
+      const data = await api.get<CalendarEntry[]>(apiBase);
       setEntries(data);
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Failed to load calendar entries");
@@ -85,13 +100,13 @@ export default function CalendarPage() {
   }, []);
 
   useEffect(() => {
-    fetchEntries();
-  }, [fetchEntries]);
+    if (isAdmin) fetchEntries();
+  }, [fetchEntries, isAdmin]);
 
   const handleUpload = async (file: File) => {
     try {
       setUploading(true);
-      const data = await api.upload<CalendarEntry[]>("/api/calendar/upload", file);
+      const data = await api.upload<CalendarEntry[]>(`${apiBase}/upload`, file);
       setParsedEntries(data);
       toast.success(`Parsed ${data.length} entries from file`);
     } catch (err) {
@@ -104,7 +119,7 @@ export default function CalendarPage() {
   const handleSaveParsed = async () => {
     try {
       setSaving(true);
-      await api.post("/api/calendar/bulk", parsedEntries);
+      await api.post(`${apiBase}/bulk`, parsedEntries);
       toast.success("All parsed entries saved successfully");
       setParsedEntries([]);
       await fetchEntries();
@@ -123,7 +138,7 @@ export default function CalendarPage() {
     }
     try {
       setAdding(true);
-      await api.post("/api/calendar", {
+      await api.post(apiBase, {
         description,
         from_date: fromDate,
         to_date: toDate,
@@ -144,7 +159,7 @@ export default function CalendarPage() {
 
   const handleDelete = async (id: number) => {
     try {
-      await api.delete(`/api/calendar/${id}`);
+      await api.delete(`${apiBase}/${id}`);
       toast.success("Entry deleted");
       await fetchEntries();
     } catch (err) {
@@ -164,7 +179,7 @@ export default function CalendarPage() {
     if (!editEntry) return;
     try {
       setUpdating(true);
-      await api.put(`/api/calendar/${editEntry.id}`, {
+      await api.put(`${apiBase}/${editEntry.id}`, {
         description: editDescription,
         from_date: editFromDate,
         to_date: editToDate,
@@ -193,12 +208,14 @@ export default function CalendarPage() {
     }
   };
 
+  if (!user || !isAdmin) return null;
+
   return (
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Academic Calendar</h1>
         <p className="text-muted-foreground">
-          Upload or manually manage academic calendar entries.
+          Upload or manually manage institution-wide academic calendar entries.
         </p>
       </div>
 
@@ -212,7 +229,7 @@ export default function CalendarPage() {
         </CardHeader>
         <FileUploadZone
           onUpload={handleUpload}
-          accept=".pdf,.xlsx,.xls,.csv,.docx"
+          accept=".pdf,.xlsx,.csv,.docx,.txt,.jpg,.jpeg,.png"
           isLoading={uploading}
         />
       </Card>

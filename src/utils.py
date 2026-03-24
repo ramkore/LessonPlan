@@ -344,6 +344,13 @@ def coerce_date(value: Any) -> date | None:
         return (base + pd.to_timedelta(int(float(value)), unit="D")).date()
 
     candidate = normalize_whitespace(strip_ordinal_suffixes(str(value)))
+
+    # Handle ISO / YYYY-prefixed formats (e.g. "2026-03-03 00:00:00" from Excel auto-conversion)
+    if re.match(r"^\d{4}[/-]", candidate):
+        parsed = pd.to_datetime(candidate, errors="coerce")
+        if not pd.isna(parsed):
+            return parsed.date()
+
     parse_candidates = [candidate]
 
     without_parentheses = normalize_whitespace(re.sub(r"\([^)]*\)", " ", candidate))

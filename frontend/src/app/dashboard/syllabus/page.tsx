@@ -234,7 +234,7 @@ export default function SyllabusPage() {
         </CardHeader>
         <FileUploadZone
           onUpload={handleUpload}
-          accept=".pdf,.xlsx,.xls,.csv,.docx"
+          accept=".pdf,.xlsx,.csv,.docx,.txt,.jpg,.jpeg,.png"
           isLoading={uploading}
         />
       </Card>

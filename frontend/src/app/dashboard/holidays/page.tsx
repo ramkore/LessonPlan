@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/lib/auth";
 import { api } from "@/lib/api";
 import type { Holiday } from "@/lib/types";
 import { toast } from "sonner";
@@ -41,6 +43,10 @@ import {
 } from "lucide-react";
 
 export default function HolidaysPage() {
+  const { user } = useAuth();
+  const router = useRouter();
+  const isAdmin = user?.role === "admin";
+
   const [holidays, setHolidays] = useState<Holiday[]>([]);
   const [parsedHolidays, setParsedHolidays] = useState<Holiday[]>([]);
   const [loading, setLoading] = useState(true);
@@ -58,10 +64,19 @@ export default function HolidaysPage() {
   const [editHolidayDate, setEditHolidayDate] = useState("");
   const [updating, setUpdating] = useState(false);
 
+  // Redirect non-admin users away from this page
+  useEffect(() => {
+    if (user && !isAdmin) {
+      router.push("/dashboard");
+    }
+  }, [user, isAdmin, router]);
+
+  const apiBase = "/api/admin/holidays";
+
   const fetchHolidays = useCallback(async () => {
     try {
       setLoading(true);
-      const data = await api.get<Holiday[]>("/api/holidays");
+      const data = await api.get<Holiday[]>(apiBase);
       setHolidays(data);
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Failed to load holidays");
@@ -71,13 +86,13 @@ export default function HolidaysPage() {
   }, []);
 
   useEffect(() => {
-    fetchHolidays();
-  }, [fetchHolidays]);
+    if (isAdmin) fetchHolidays();
+  }, [fetchHolidays, isAdmin]);
 
   const handleUpload = async (file: File) => {
     try {
       setUploading(true);
-      const data = await api.upload<Holiday[]>("/api/holidays/upload", file);
+      const data = await api.upload<Holiday[]>(`${apiBase}/upload`, file);
       setParsedHolidays(data);
       toast.success(`Parsed ${data.length} holidays from file`);
     } catch (err) {
@@ -90,7 +105,7 @@ export default function HolidaysPage() {
   const handleSaveParsed = async () => {
     try {
       setSaving(true);
-      await api.post("/api/holidays/bulk", parsedHolidays);
+      await api.post(`${apiBase}/bulk`, parsedHolidays);
       toast.success("All parsed holidays saved successfully");
       setParsedHolidays([]);
       await fetchHolidays();
@@ -109,7 +124,7 @@ export default function HolidaysPage() {
     }
     try {
       setAdding(true);
-      await api.post("/api/holidays", {
+      await api.post(apiBase, {
         occasion,
         holiday_date: holidayDate,
       });
@@ -126,7 +141,7 @@ export default function HolidaysPage() {
 
   const handleDelete = async (id: number) => {
     try {
-      await api.delete(`/api/holidays/${id}`);
+      await api.delete(`${apiBase}/${id}`);
       toast.success("Holiday deleted");
       await fetchHolidays();
     } catch (err) {
@@ -144,7 +159,7 @@ export default function HolidaysPage() {
     if (!editHoliday) return;
     try {
       setUpdating(true);
-      await api.put(`/api/holidays/${editHoliday.id}`, {
+      await api.put(`${apiBase}/${editHoliday.id}`, {
         occasion: editOccasion,
         holiday_date: editHolidayDate,
       });
@@ -158,12 +173,14 @@ export default function HolidaysPage() {
     }
   };
 
+  if (!user || !isAdmin) return null;
+
   return (
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Holidays</h1>
         <p className="text-muted-foreground">
-          Upload or manually manage holiday entries.
+          Upload or manually manage institution-wide holiday entries.
         </p>
       </div>
 
@@ -177,7 +194,7 @@ export default function HolidaysPage() {
         </CardHeader>
         <FileUploadZone
           onUpload={handleUpload}
-          accept=".pdf,.xlsx,.xls,.csv,.docx"
+          accept=".pdf,.xlsx,.csv,.docx,.txt,.jpg,.jpeg,.png"
           isLoading={uploading}
         />
       </Card>

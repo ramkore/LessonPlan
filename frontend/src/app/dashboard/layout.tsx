@@ -24,18 +24,36 @@ import {
   Menu,
   X,
   GraduationCap,
-  ShieldCheck,
+  CalendarDays,
+  PartyPopper,
+  Users,
+  FileText,
 } from "lucide-react";
 
-const navItems = [
+const facultyNavItems = [
   { label: "Dashboard", href: "/dashboard", icon: Home },
   { label: "Timetable", href: "/dashboard/timetable", icon: Clock },
   { label: "Syllabus", href: "/dashboard/syllabus", icon: BookOpen },
   { label: "Generate", href: "/dashboard/generate", icon: Sparkles },
-  { label: "Admin", href: "/dashboard/admin", icon: ShieldCheck, adminOnly: true },
+] as const;
+
+const adminNavItems = [
+  { label: "Dashboard", href: "/dashboard/admin", icon: Home },
+  { label: "Calendar", href: "/dashboard/calendar", icon: CalendarDays },
+  { label: "Holidays", href: "/dashboard/holidays", icon: PartyPopper },
+  { label: "Users", href: "/dashboard/admin/users", icon: Users },
+  { label: "Plans", href: "/dashboard/admin/plans", icon: FileText },
 ] as const;
 
 export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <DashboardLayoutInner>{children}</DashboardLayoutInner>;
+}
+
+function DashboardLayoutInner({
   children,
 }: {
   children: React.ReactNode;
@@ -50,6 +68,13 @@ export default function DashboardLayout({
       router.push("/login");
     }
   }, [isLoading, isAuthenticated, router]);
+
+  // Redirect admin users from faculty dashboard to admin dashboard
+  useEffect(() => {
+    if (!isLoading && isAuthenticated && user?.role === "admin" && pathname === "/dashboard") {
+      router.replace("/dashboard/admin");
+    }
+  }, [isLoading, isAuthenticated, user, pathname, router]);
 
   // Close mobile sidebar on route change
   useEffect(() => {
@@ -116,13 +141,10 @@ export default function DashboardLayout({
         {/* Navigation */}
         <nav className="flex-1 overflow-y-auto px-3 py-4">
           <ul className="flex flex-col gap-1">
-            {navItems.filter((item) => !("adminOnly" in item && item.adminOnly) || user?.role === "admin").map((item) => {
-              const isActive =
-                pathname === item.href ||
-                (item.href !== "/dashboard" &&
-                  pathname.startsWith(item.href));
+            {(user?.role === "admin" ? adminNavItems : facultyNavItems).map((item) => {
+              const isActive = pathname === item.href || (item.href !== "/dashboard" && item.href !== "/dashboard/admin" && pathname.startsWith(item.href));
               return (
-                <li key={item.href}>
+                <li key={item.label}>
                   <Link
                     href={item.href}
                     className={cn(

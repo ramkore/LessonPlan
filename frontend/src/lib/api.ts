@@ -29,12 +29,15 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
   });
 
   if (res.status === 401) {
-    if (typeof window !== "undefined") {
+    // For login/register/refresh, don't redirect — let the caller handle the error
+    const isAuthEndpoint = path.startsWith("/api/auth/login") || path.startsWith("/api/auth/register") || path.startsWith("/api/auth/refresh");
+    if (!isAuthEndpoint && typeof window !== "undefined") {
       localStorage.removeItem("token");
       localStorage.removeItem("refresh_token");
       window.location.href = "/login";
     }
-    throw new Error("Unauthorized");
+    const error = await res.json().catch(() => ({ detail: "Unauthorized" }));
+    throw new Error(error.detail || "Unauthorized");
   }
 
   if (!res.ok) {

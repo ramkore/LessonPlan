@@ -1,9 +1,10 @@
 """Admin panel endpoints."""
 from __future__ import annotations
 
+import asyncio
 from datetime import datetime, timezone
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, status
 from sqlalchemy import func
 from sqlmodel import Session, select
 
@@ -362,6 +363,70 @@ def admin_delete_calendar(
     db.commit()
 
 
+@router.delete("/calendar", status_code=status.HTTP_204_NO_CONTENT)
+def admin_clear_calendar(
+    admin: User = Depends(get_current_admin),
+    db: Session = Depends(get_db),
+):
+    entries = db.exec(select(AcademicCalendarEntry).where(AcademicCalendarEntry.is_global == True)).all()  # type: ignore[union-attr]
+    for e in entries:
+        db.delete(e)
+    db.commit()
+
+
+@router.post("/calendar/upload", response_model=list[dict])
+async def admin_upload_calendar(
+    file: UploadFile,
+    admin: User = Depends(get_current_admin),
+):
+    from backend.services.parser_service import _cleanup_temp, _save_upload_to_temp, parse_calendar_sync
+
+    temp_path = await _save_upload_to_temp(file)
+    try:
+        records = await asyncio.to_thread(parse_calendar_sync, temp_path)
+        return [
+            {
+                "id": 0,
+                "description": r.get("description", ""),
+                "from_date": str(r["from_date"]),
+                "to_date": str(r["to_date"]),
+                "event_type": r.get("event_type", "teaching"),
+            }
+            for r in records
+        ]
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=f"Failed to parse calendar: {exc}")
+    finally:
+        _cleanup_temp(temp_path)
+
+
+@router.post("/calendar/bulk", status_code=status.HTTP_201_CREATED)
+def admin_bulk_calendar(
+    entries: list[dict],
+    admin: User = Depends(get_current_admin),
+    db: Session = Depends(get_db),
+):
+    # Clear existing global entries first
+    existing = db.exec(select(AcademicCalendarEntry).where(AcademicCalendarEntry.is_global == True)).all()  # type: ignore[union-attr]
+    for e in existing:
+        db.delete(e)
+
+    created = []
+    for body in entries:
+        entry = AcademicCalendarEntry(
+            description=body["description"],
+            from_date=body["from_date"],
+            to_date=body["to_date"],
+            event_type=body.get("event_type", "teaching"),
+            is_global=True,
+            user_id=None,
+        )
+        db.add(entry)
+        created.append(entry)
+    db.commit()
+    return {"saved": len(created)}
+
+
 # ── Admin: Global Holiday Management ─────────────────────────────────────────
 
 
@@ -444,3 +509,59 @@ def admin_delete_holiday(
         raise HTTPException(status_code=404, detail="Holiday not found")
     db.delete(holiday)
     db.commit()
+
+
+@router.delete("/holidays", status_code=status.HTTP_204_NO_CONTENT)
+def admin_clear_holidays(
+    admin: User = Depends(get_current_admin),
+    db: Session = Depends(get_db),
+):
+    holidays = db.exec(select(Holiday).where(Holiday.is_global == True)).all()  # type: ignore[union-attr]
+    for h in holidays:
+        db.delete(h)
+    db.commit()
+
+
+@router.post("/holidays/upload", response_model=list[dict])
+async def admin_upload_holidays(
+    file: UploadFile,
+    admin: User = Depends(get_current_admin),
+):
+    from backend.services.parser_service import _cleanup_temp, _save_upload_to_temp, parse_holidays_sync
+
+    temp_path = await _save_upload_to_temp(file)
+    try:
+        records = await asyncio.to_thread(parse_holidays_sync, temp_path)
+        return [
+            {"id": 0, "occasion": r.get("occasion", "Holiday"), "holiday_date": str(r["holiday_date"])}
+            for r in records
+        ]
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail=f"Failed to parse holidays: {exc}")
+    finally:
+        _cleanup_temp(temp_path)
+
+
+@router.post("/holidays/bulk", status_code=status.HTTP_201_CREATED)
+def admin_bulk_holidays(
+    items: list[dict],
+    admin: User = Depends(get_current_admin),
+    db: Session = Depends(get_db),
+):
+    # Clear existing global holidays first
+    existing = db.exec(select(Holiday).where(Holiday.is_global == True)).all()  # type: ignore[union-attr]
+    for h in existing:
+        db.delete(h)
+
+    created = []
+    for body in items:
+        holiday = Holiday(
+            occasion=body["occasion"],
+            holiday_date=body["holiday_date"],
+            is_global=True,
+            user_id=None,
+        )
+        db.add(holiday)
+        created.append(holiday)
+    db.commit()
+    return {"saved": len(created)}
