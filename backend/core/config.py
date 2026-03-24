@@ -16,7 +16,13 @@ class Settings(BaseSettings):
     UPLOAD_DIR: str = "tmp/uploads"
     PROJECT_ROOT: str = str(Path(__file__).resolve().parent.parent.parent)
 
-    model_config = {"env_file": ".env", "extra": "ignore"}
+    model_config = {
+        "env_file": [
+            str(Path(__file__).resolve().parent.parent / ".env"),  # backend/.env
+            ".env",  # project root .env (fallback)
+        ],
+        "extra": "ignore",
+    }
 
 
 settings = Settings()
