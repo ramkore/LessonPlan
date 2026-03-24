@@ -17,8 +17,6 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Home,
-  CalendarDays,
-  PartyPopper,
   Clock,
   BookOpen,
   Sparkles,
@@ -31,8 +29,6 @@ import {
 
 const navItems = [
   { label: "Dashboard", href: "/dashboard", icon: Home },
-  { label: "Calendar", href: "/dashboard/calendar", icon: CalendarDays },
-  { label: "Holidays", href: "/dashboard/holidays", icon: PartyPopper },
   { label: "Timetable", href: "/dashboard/timetable", icon: Clock },
   { label: "Syllabus", href: "/dashboard/syllabus", icon: BookOpen },
   { label: "Generate", href: "/dashboard/generate", icon: Sparkles },

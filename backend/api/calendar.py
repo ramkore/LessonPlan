@@ -19,10 +19,13 @@ def list_entries(
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
+    # Get both user-specific and global admin-provided calendar entries
     entries = db.exec(
         select(AcademicCalendarEntry)
-        .where(AcademicCalendarEntry.user_id == user.id)
-        .order_by(AcademicCalendarEntry.from_date)
+        .where(
+            (AcademicCalendarEntry.user_id == user.id) | (AcademicCalendarEntry.is_global == True)  # type: ignore[union-attr]
+        )
+        .order_by(AcademicCalendarEntry.from_date)  # type: ignore[union-attr]
     ).all()
     return entries
 
@@ -65,7 +68,7 @@ def update_entry(
     db: Session = Depends(get_db),
 ):
     entry = db.get(AcademicCalendarEntry, entry_id)
-    if not entry or entry.user_id != user.id:
+    if not entry or entry.user_id != user.id or entry.is_global:
         raise HTTPException(status_code=404, detail="Entry not found")
     for key, value in body.model_dump(exclude_unset=True).items():
         setattr(entry, key, value)
@@ -82,7 +85,7 @@ def delete_entry(
     db: Session = Depends(get_db),
 ):
     entry = db.get(AcademicCalendarEntry, entry_id)
-    if not entry or entry.user_id != user.id:
+    if not entry or entry.user_id != user.id or entry.is_global:
         raise HTTPException(status_code=404, detail="Entry not found")
     db.delete(entry)
     db.commit()
@@ -94,7 +97,8 @@ def delete_all(
     db: Session = Depends(get_db),
 ):
     entries = db.exec(
-        select(AcademicCalendarEntry).where(AcademicCalendarEntry.user_id == user.id)
+        select(AcademicCalendarEntry)
+        .where((AcademicCalendarEntry.user_id == user.id) & (AcademicCalendarEntry.is_global == False))  # type: ignore[union-attr]
     ).all()
     for entry in entries:
         db.delete(entry)

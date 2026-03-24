@@ -19,8 +19,13 @@ def list_holidays(
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
+    # Get both user-specific and global admin-provided holidays
     return db.exec(
-        select(Holiday).where(Holiday.user_id == user.id).order_by(Holiday.holiday_date)
+        select(Holiday)
+        .where(
+            (Holiday.user_id == user.id) | (Holiday.is_global == True)  # type: ignore[union-attr]
+        )
+        .order_by(Holiday.holiday_date)  # type: ignore[union-attr]
     ).all()
 
 
@@ -62,7 +67,7 @@ def update_holiday(
     db: Session = Depends(get_db),
 ):
     holiday = db.get(Holiday, holiday_id)
-    if not holiday or holiday.user_id != user.id:
+    if not holiday or holiday.user_id != user.id or holiday.is_global:
         raise HTTPException(status_code=404, detail="Holiday not found")
     for key, value in body.model_dump(exclude_unset=True).items():
         setattr(holiday, key, value)
@@ -79,7 +84,7 @@ def delete_holiday(
     db: Session = Depends(get_db),
 ):
     holiday = db.get(Holiday, holiday_id)
-    if not holiday or holiday.user_id != user.id:
+    if not holiday or holiday.user_id != user.id or holiday.is_global:
         raise HTTPException(status_code=404, detail="Holiday not found")
     db.delete(holiday)
     db.commit()
@@ -90,7 +95,10 @@ def delete_all(
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    holidays = db.exec(select(Holiday).where(Holiday.user_id == user.id)).all()
+    holidays = db.exec(
+        select(Holiday)
+        .where((Holiday.user_id == user.id) & (Holiday.is_global == False))  # type: ignore[union-attr]
+    ).all()
     for holiday in holidays:
         db.delete(holiday)
     db.commit()
