@@ -53,6 +53,19 @@ def run_migrations() -> None:
                     text("ALTER TABLE holiday ADD COLUMN is_global BOOLEAN NOT NULL DEFAULT FALSE")
                 )
 
+    # Migration: allow NULL user_id for admin-created global entries (PostgreSQL only)
+    if not _is_sqlite and "academiccalendarentry" in table_names:
+        cal_cols = {c["name"]: c for c in insp.get_columns("academiccalendarentry")}
+        if "user_id" in cal_cols and not cal_cols["user_id"].get("nullable", True):
+            with engine.begin() as conn:
+                conn.execute(text("ALTER TABLE academiccalendarentry ALTER COLUMN user_id DROP NOT NULL"))
+
+    if not _is_sqlite and "holiday" in table_names:
+        hol_cols = {c["name"]: c for c in insp.get_columns("holiday")}
+        if "user_id" in hol_cols and not hol_cols["user_id"].get("nullable", True):
+            with engine.begin() as conn:
+                conn.execute(text("ALTER TABLE holiday ALTER COLUMN user_id DROP NOT NULL"))
+
 
 def get_session() -> Session:
     return Session(engine)
