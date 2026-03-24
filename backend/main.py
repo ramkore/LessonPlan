@@ -1,6 +1,7 @@
 """FastAPI application initialization."""
 from __future__ import annotations
 
+import os
 import sys
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -65,8 +66,6 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="Lesson Plan Generator API", version="1.0.0", lifespan=lifespan)
-
-import os  # noqa: E402
 
 _cors_origins = os.getenv("CORS_ORIGINS", "http://localhost:3000")
 app.add_middleware(

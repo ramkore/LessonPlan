@@ -38,15 +38,19 @@ async def generate(
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    # Load user's data from DB
+    # Load user's data from DB (include global admin-provided entries)
     calendar_entries = db.exec(
-        select(AcademicCalendarEntry).where(AcademicCalendarEntry.user_id == user.id)
+        select(AcademicCalendarEntry).where(
+            (AcademicCalendarEntry.user_id == user.id) | (AcademicCalendarEntry.is_global == True)  # type: ignore[union-attr]
+        )
     ).all()
     if not calendar_entries:
         raise HTTPException(status_code=400, detail="No academic calendar entries found. Please add calendar data first.")
 
     holidays = db.exec(
-        select(Holiday).where(Holiday.user_id == user.id)
+        select(Holiday).where(
+            (Holiday.user_id == user.id) | (Holiday.is_global == True)  # type: ignore[union-attr]
+        )
     ).all()
 
     timetable_entries = db.exec(
@@ -132,14 +136,20 @@ async def generate_and_export(
     if fmt not in ("pdf", "excel", "word"):
         raise HTTPException(status_code=400, detail="Format must be pdf, excel, or word")
 
-    # Load data (same as generate)
+    # Load data (same as generate, include global admin-provided entries)
     calendar_entries = db.exec(
-        select(AcademicCalendarEntry).where(AcademicCalendarEntry.user_id == user.id)
+        select(AcademicCalendarEntry).where(
+            (AcademicCalendarEntry.user_id == user.id) | (AcademicCalendarEntry.is_global == True)  # type: ignore[union-attr]
+        )
     ).all()
     if not calendar_entries:
         raise HTTPException(status_code=400, detail="No academic calendar entries found")
 
-    holidays = db.exec(select(Holiday).where(Holiday.user_id == user.id)).all()
+    holidays = db.exec(
+        select(Holiday).where(
+            (Holiday.user_id == user.id) | (Holiday.is_global == True)  # type: ignore[union-attr]
+        )
+    ).all()
     timetable_entries = db.exec(
         select(TimetableEntry).where(TimetableEntry.user_id == user.id)
     ).all()
